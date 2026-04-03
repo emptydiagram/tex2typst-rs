@@ -324,8 +324,8 @@ fn convert_token(token: &str) -> String {
     } else if token == "/" {
         "\\/".to_string()
     } else if token == "\\|" {
-        // \| in LaTeX is double vertical bar looks like ||
-        "parallel".to_string()
+        // \| in LaTeX is double vertical bar ‖ (same as \Vert), not parallel ∥
+        "bar.v.double".to_string()
     } else if token == "\\\\" {
         "\\".to_string()
     } else if ["\\$", "\\#", "\\&", "\\_"].contains(&token) {

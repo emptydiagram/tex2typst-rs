@@ -25,11 +25,11 @@ pub fn eat_whitespaces(tokens: &[TexToken], start: usize) -> usize {
 pub fn eat_parenthesis(tokens: &[TexToken], start: usize) -> Option<&TexToken> {
     let first_token = &tokens[start];
     if first_token.token_type == TexTokenType::Element
-        && ["(", ")", "[", "]", "|", "\\{", "\\}", "."].contains(&first_token.value.as_str())
+        && ["(", ")", "[", "]", "<", ">", "/", "|", "\\|", "\\{", "\\}", "."].contains(&first_token.value.as_str())
     {
         Some(first_token)
     } else if first_token.token_type == TexTokenType::Command
-        && ["lfloor", "rfloor", "lceil", "rceil", "langle", "rangle"].contains(&&first_token.value[1..])
+        && ["vert", "Vert", "lvert", "rvert", "lVert", "rVert", "lbrace", "rbrace", "lbrack", "rbrack", "lfloor", "rfloor", "lceil", "rceil", "langle", "rangle"].contains(&&first_token.value[1..])
     {
         Some(first_token)
     } else {
